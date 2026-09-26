@@ -1,1 +1,29 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TapTap Multimodal Ad Review System — Will Guo</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../project.css"></head><body><header class="nav-wrap"><nav class="nav container"><a class="brand" href="../index.html">WG</a><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#about">About</a></div><a class="nav-cta" href="../index.html#projects">Projects</a></nav></header><main><section class="project-hero container"><a class="back" href="../index.html#projects">← Back to projects</a><div class="eyebrow">CASE STUDY</div><h1>TapTap Multimodal Ad Review System</h1><p class="lead">Turning a vague AI-review opportunity into a deployable multimodal moderation workflow for high-volume advertising content.</p><div class="case-meta"><span>Enterprise AI</span><span>Multimodal</span><span>ToB Delivery</span></div></section><section class="container case-grid"><article class="case-block card"><div class="eyebrow">OVERVIEW</div><h2>What this project was about</h2><p>A multimodal advertising review workflow combining video, audio, OCR and specialized agents. The focus was not only model accuracy, but also latency, cost, operational fit and customer acceptance.</p></article><article class="case-block card"><div class="eyebrow">CHALLENGE</div><h2>What made it difficult</h2><p>The customer needed faster review at scale while keeping quality high. Video content introduced multiple modalities, inconsistent rule interpretation and a difficult trade-off between accuracy, response time and cost.</p></article><article class="case-block card wide"><div class="eyebrow">SOLUTION</div><h2>How I approached it</h2><p>I helped structure the workflow from whole-video review into a modular pipeline: frame extraction and OCR, audio analysis, video slicing, specialized tools and LLM-based risk judgement. The solution evolved through multiple iterations as rules became more detailed and cost pressure increased.</p><div class="architecture"><div class="flow"><span class="node">Video / Image</span><span class="arrow">→</span><span class="node">Frame extraction + OCR</span><span class="arrow">→</span><span class="node">Audio / clip analysis</span><span class="arrow">→</span><span class="node">Specialized agents</span><span class="arrow">→</span><span class="node">LLM judgement</span><span class="arrow">→</span><span class="node">Risk output</span></div></div></article><article class="case-block card"><div class="eyebrow">MY CONTRIBUTION</div><h2>What I owned</h2><p>I participated from early requirement discovery through workflow design, customer communication, rule alignment, PoC iteration and cross-functional delivery with engineering, algorithm, operations and legal stakeholders.</p></article><article class="case-block card"><div class="eyebrow">IMPACT</div><h2>What changed</h2><div class="impact"><div><strong>99.2%</strong><span>optimized workflow accuracy</span></div><div><strong>+50%</strong><span>review efficiency</span></div><div><strong>−40%</strong><span>cost</span></div></div></article></section></main><footer class="footer container"><span>© 2026 Will Guo</span><span><a href="../index.html">Home</a></span></footer></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TapTap 多模态广告审核系统 — Will Guo</title>
+  <link rel="stylesheet" href="../project.css" />
+</head>
+<body>
+  <header class="site-header project-nav"><nav class="nav shell"><a class="monogram" href="../index.html">WG</a><a class="nav-link" href="../index.html#projects">全部项目 <span>05</span></a></nav></header>
+  <main class="project-main">
+    <section class="project-hero shell">
+      <a class="back" href="../index.html#projects">← 返回项目列表</a>
+      <p class="project-index">PROJECT 01 / MULTIMODAL AI</p>
+      <h1>TapTap<br />多模态广告审核系统</h1>
+      <p class="project-lead">面向游戏广告审核场景，设计并持续迭代多模态 AI 审核方案。</p>
+    </section>
+    <section class="case-study shell">
+      <article class="case-row"><p class="case-label">项目简介</p><div class="case-content"><h2>覆盖多种模态的广告审核方案</h2><p>面向游戏广告审核场景，设计并持续迭代多模态 AI 审核方案，覆盖视频、图片、音频、OCR、视频切片、专项 Agent 与大模型判断等环节。</p></div></article>
+      <article class="case-row"><p class="case-label">项目背景</p><div class="case-content"><h2>在准确率、时效与成本之间取得平衡</h2><p>广告审核需要同时处理不同模态的信息，视频内容还涉及画面、文字、声音和时序信息。项目需要在审核准确率、处理时效和整体成本之间进行平衡。</p></div></article>
+      <article class="case-row"><p class="case-label">方案设计</p><div class="case-content"><h2>从整视频识别，演进为模块化审核链路</h2><p>早期方案主要通过整视频模型识别风险，并进一步定位风险片段。随着审核规则逐步细化，方案进一步拆分为多个模块：</p><ul><li>视频抽帧</li><li>OCR</li><li>音频识别</li><li>视频切片</li><li>电话号码、人脸、违规声音等专项 Agent</li><li>大模型风险判断</li></ul><p>后续继续对链路进行优化，减少冗余调用，并根据模型采购和成本情况调整底层模型。</p></div></article>
+      <article class="case-row"><p class="case-label">我的工作</p><div class="case-content"><h2>Workflow 设计与跨团队推进</h2><p>参与需求梳理、审核规则理解、整体 workflow 设计、方案迭代和跨团队推进，并与算法、研发、运营等团队共同推动 PoC 和后续落地。</p></div></article>
+      <article class="case-row"><p class="case-label">项目结果</p><div class="case-content"><div class="result-grid"><div class="result"><strong>99.2%</strong><span>准确率最高</span></div><div class="result"><strong>≈ 50%</strong><span>审核时效提升</span></div><div class="result"><strong>≈ 40%</strong><span>整体成本下降</span></div></div></div></article>
+      <article class="case-row"><p class="case-label">关键词</p><div class="case-content keywords"><span>Multimodal AI</span><span>Content Moderation</span><span>OCR</span><span>Agent</span><span>LLM</span><span>Workflow Design</span></div></article>
+    </section>
+  </main>
+  <footer class="footer shell"><span>GUO CHENGXI / Will Guo</span><a href="../index.html#projects">返回项目列表 ↑</a></footer>
+</body>
+</html>
