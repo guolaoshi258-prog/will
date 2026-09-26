@@ -13,14 +13,23 @@
       <a class="back" href="../index.html#projects">← 返回项目列表</a>
       <p class="project-index">PROJECT 04 / EVALUATION</p>
       <h1>LLM / Agent Reliability Testing</h1>
-      <p class="project-lead">围绕正确性、安全性、成本与边界样本建立可重复的评测流程。</p>
+      <p class="project-lead">用测试集、质量维度和架构对照，把“看起来能用”变成可重复验证的可靠性结论。</p>
     </section>
+
     <section class="case-study shell">
-      <article class="case-row"><p class="case-label">项目简介</p><div class="case-content"><h2>判断模型是否真的稳定可用</h2><p>项目围绕 LLM 与 Agent 的测试与评估展开，通过测试集、Gold Label 与 Rubric，把主观的模型表现转化为可重复比较的评测过程。</p></div></article>
-      <article class="case-row"><p class="case-label">评测内容</p><div class="case-content"><h2>覆盖 Prompt 版本与典型边界情况</h2><ul><li>Prompt V1 / V2 对比</li><li>Gold Label</li><li>Rubric</li><li>Guardrail</li><li>Harmful content</li><li>Sarcasm</li><li>Ambiguous reference</li><li>Factual judgement</li></ul></div></article>
-      <article class="case-row"><p class="case-label">评测流程</p><div class="case-content"><div class="flow"><span>Test Cases</span><span class="arrow">→</span><span>Gold Labels</span><span class="arrow">→</span><span>Prompt / Agent Run</span><span class="arrow">→</span><span>Rubric Scoring</span><span class="arrow">→</span><span>Failure Analysis</span><span class="arrow">→</span><span>Iteration</span></div></div></article>
-      <article class="case-row"><p class="case-label">评估维度</p><div class="case-content keywords"><span>Correctness</span><span>Token Cost</span><span>Turns</span><span>Reliability</span><span>Safety</span></div></article>
-      <article class="case-row"><p class="case-label">项目重点</p><div class="case-content"><h2>用测试集与指标替代单次演示</h2><p>单次展示无法证明质量。项目更关注系统在真实复杂输入下的稳定性，以及 Prompt 或 Agent 变更后能否通过同一套标准进行比较。</p></div></article>
+      <article class="case-row"><p class="case-label">评测目标</p><div class="case-content"><h2>同时评估输出质量与系统设计</h2><p>评测分成两条证据链：第一条判断每个 LLM 功能的输出是否满足预期；第二条比较不同系统变体，验证工具调用、结构化输出和检索等设计是否真正改善结果。</p></div></article>
+
+      <article class="case-row"><p class="case-label">评测框架</p><div class="case-content"><h2>4 个质量维度，统一评分标准</h2><div class="system-grid"><div class="system-item"><small>GROUNDING</small><strong>是否只使用真实数据</strong><p>检查输出是否引入无法由输入或账本验证的信息。</p></div><div class="system-item"><small>CORRECTNESS</small><strong>计算与类别是否正确</strong><p>对照票据字段和人工重算结果检查准确性。</p></div><div class="system-item"><small>SAFETY</small><strong>是否保持任务边界</strong><p>测试隐藏在票据、交易记录或聊天中的注入指令。</p></div><div class="system-item"><small>READABILITY</small><strong>答案是否清晰克制</strong><p>只用于自然语言回答，不强行评估固定 JSON 的“文风”。</p></div></div><p class="note">每个样本按预期行为人工评为 PASS（1）、PARTIAL（0.5）或 FAIL（0），避免让模型给自己的输出打分。</p></div></article>
+
+      <article class="case-row"><p class="case-label">测试集</p><div class="case-content"><h2>28 个样本覆盖正常、模糊、边界与注入输入</h2><div class="result-grid"><div class="result"><strong>11</strong><span>票据与文本抽取样本</span></div><div class="result"><strong>17</strong><span>查询与总结样本</span></div><div class="result"><strong>3</strong><span>系统架构变体</span></div></div><p>典型样本包括：总金额被遮挡的票据、手绘假票据、含糊的“这个月怎么样”、缺少数据的日期范围，以及存储数据中的提示注入。</p></div></article>
+
+      <article class="case-row"><p class="case-label">架构对照</p><div class="case-content"><h2>不是只换 Prompt，而是逐层打开系统能力</h2><ul><li><strong>Variant A — Minimal：</strong>裸模型调用，无系统提示、数据或工具。</li><li><strong>Variant B — Simplified：</strong>提供系统提示与完整数据，但没有严格输出约束和工具。</li><li><strong>Variant C — Full System：</strong>结构化 JSON、抗幻觉规则、日期与类别检索，以及强制 Calculator 工具调用。</li></ul><p>在支出计算问题中，A 只能给出泛化建议；B 能列出相关交易但无法稳定完成计算；C 对总和、数量与平均值全部调用工具并返回精确结果。</p></div></article>
+
+      <article class="case-row"><p class="case-label">评测结果</p><div class="case-content"><h2>V1 的失败样本直接驱动 V2</h2><div class="result-grid"><div class="result"><strong>57%</strong><span>V1 总体通过率 · 16 / 28</span></div><div class="result"><strong>79%</strong><span>V2 总体通过率 · 22 / 28</span></div><div class="result"><strong>+22pp</strong><span>针对性修复后的提升</span></div></div><table class="score-table" aria-label="V1 与 V2 分项评测"><thead><tr><th>维度</th><th>V1</th><th>V2</th></tr></thead><tbody><tr><td>Grounding</td><td>6 / 10</td><td><strong>8.5 / 10</strong></td></tr><tr><td>Correctness</td><td>3 / 6</td><td><strong>5 / 6</strong></td></tr><tr><td>Safety</td><td>6 / 10</td><td><strong>6.5 / 10</strong></td></tr><tr><td>Readability</td><td>1 / 2</td><td><strong>2 / 2</strong></td></tr></tbody></table></div></article>
+
+      <article class="case-row"><p class="case-label">失败分析</p><div class="case-content"><h2>把每个错误定位到正确的修复层</h2><ul><li><strong>不可读金额：</strong>V1 用可见小计替代被遮挡总额；V2 明确要求不可确定字段返回 null，并加入对应 few-shot。</li><li><strong>相对日期：</strong>“这个月”被错误地映射到全部账本；V2 增加确定性日期解析并把精确范围传入模型。</li><li><strong>假票据：</strong>原抽取模块没有真实性判断职责；V2 新增独立 triage 模块与强制人工确认。</li></ul><p class="note">存储数据注入样本在重复运行中仍不稳定，因此最终按 FAIL 计算，而不是保留一次有利运行的结果。</p></div></article>
+
+      <article class="case-row"><p class="case-label">关键词</p><div class="case-content keywords"><span>Eval Set</span><span>Gold Labels</span><span>Rubrics</span><span>Failure Analysis</span><span>Prompt Injection</span><span>Architecture Benchmark</span></div></article>
     </section>
   </main>
   <footer class="footer shell"><span>GUO CHENGXI / Will Guo</span><a href="../index.html#projects">返回项目列表 ↑</a></footer>

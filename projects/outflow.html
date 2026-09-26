@@ -13,14 +13,21 @@
       <a class="back" href="../index.html#projects">← 返回项目列表</a>
       <p class="project-index">PROJECT 03 / AI AGENT</p>
       <h1>Outflow — 对话式支出管理 Agent</h1>
-      <p class="project-lead">从票据识别、结构化数据，到工具调用和自然语言查询。</p>
+      <p class="project-lead">把票据与随手记录转化为结构化账本，并用可追溯的工具调用回答支出问题。</p>
     </section>
+
     <section class="case-study shell">
-      <article class="case-row"><p class="case-label">项目简介</p><div class="case-content"><h2>把票据变成可查询的支出记录</h2><p>Outflow 是一个票据与支出管理 Agent：从 Receipt 输入，到 OCR 与信息抽取，再形成结构化数据，并支持自然语言查询。</p></div></article>
-      <article class="case-row"><p class="case-label">核心问题</p><div class="case-content"><h2>让模型负责理解，让工具负责计算</h2><p>大模型擅长理解语言，但并不适合直接处理精确的财务计算。项目重点是减少数字场景中的幻觉，把计算交给 Calculator 或 Tool，并通过结构化数据进行 grounding。</p></div></article>
-      <article class="case-row"><p class="case-label">项目流程</p><div class="case-content"><div class="flow"><span>Receipt</span><span class="arrow">→</span><span>OCR / Extraction</span><span class="arrow">→</span><span>Structured Data</span><span class="arrow">→</span><span>Calculator / Tools</span><span class="arrow">→</span><span>Natural Language Query</span><span class="arrow">→</span><span>Grounded Answer</span></div></div></article>
-      <article class="case-row"><p class="case-label">方案重点</p><div class="case-content"><h2>模型、工具与数据各自完成最适合的部分</h2><ul><li>OCR 与票据信息抽取</li><li>结构化数据存储</li><li>Tool Calling 与精确计算</li><li>Grounding 与幻觉控制</li></ul></div></article>
-      <article class="case-row"><p class="case-label">关键词</p><div class="case-content keywords"><span>OCR</span><span>Structured Output</span><span>Tool Calling</span><span>Grounding</span><span>Hallucination Reduction</span></div></article>
+      <article class="case-row"><p class="case-label">项目问题</p><div class="case-content"><h2>记录要足够轻，答案要足够可信</h2><p>传统预算工具往往要求用户手动录入大量字段，记录成本高；数据进入表格后，用户仍需要自行筛选和计算。Outflow 面向有固定月度预算的学生，聚焦两个结果：用票据或一句自然语言快速记录支出，并用自然语言直接查询可信数字。</p></div></article>
+
+      <article class="case-row"><p class="case-label">设计原则</p><div class="case-content"><h2>AI 处理模糊性，确定性工具处理精确性</h2><p>生成式模型只放在输入和输出两端：负责把不同格式的票据、图片或随手记录转换成结构，并理解用户的自然语言问题。分类、日期解析、数学计算和图表生成则交给可审计的规则与工具。</p><div class="system-grid"><div class="system-item"><small>AI / INPUT</small><strong>票据真实性判断与信息抽取</strong><p>Qwen2.5-VL-72B 输出严格 JSON；无法确定的字段返回 null。</p></div><div class="system-item"><small>HUMAN GATE</small><strong>保存前人工确认</strong><p>所有数据均经过可编辑复核；被标记的票据必须显式确认后才能保存。</p></div><div class="system-item"><small>DETERMINISTIC</small><strong>分类、日期与计算</strong><p>查表完成类别映射，规则解析相对日期，Calculator 负责所有总和与平均值。</p></div><div class="system-item"><small>AI / OUTPUT</small><strong>基于账本生成回答</strong><p>DeepSeek V3.2 仅使用检索到的交易数据组织自然语言答案。</p></div></div></div></article>
+
+      <article class="case-row"><p class="case-label">系统流程</p><div class="case-content"><h2>从原始输入到可追溯答案</h2><div class="flow"><span>Receipt / Text</span><span class="arrow">→</span><span>Receipt Triage</span><span class="arrow">→</span><span>Vision Extraction</span><span class="arrow">→</span><span>Human Review</span><span class="arrow">→</span><span>Rule-based Category</span><span class="arrow">→</span><span>Ledger</span><span class="arrow">→</span><span>Retrieval + Tools</span><span class="arrow">→</span><span>Grounded Answer</span></div><p>查询和月度总结共用同一套检索与工具链；图表由 pandas / matplotlib 直接从账本生成，不由大模型绘制或估算。</p></div></article>
+
+      <article class="case-row"><p class="case-label">成功标准</p><div class="case-content"><h2>在实现前固定可衡量目标</h2><div class="result-grid"><div class="result"><strong>≥ 90%</strong><span>日期、商户与金额可正确抽取，或一次编辑内纠正</span></div><div class="result"><strong>0</strong><span>28 个完整系统测试中不允许出现无法追溯的数字</span></div><div class="result"><strong>&lt; 30s</strong><span>包含人工确认的单笔支出入账目标</span></div></div><p class="note">这些是项目在实现前设定的成功标准，而不是把单次演示结果包装成指标。</p></div></article>
+
+      <article class="case-row"><p class="case-label">原型验证</p><div class="case-content"><h2>界面原型与可运行后端并行验证</h2><p>产品包含 ADD、CATEGORY、ASK、SUMMARY 四个交互区域；功能后端通过 OpenRouter 调用视觉与文本模型，并连接真实账本、计算工具、规则检索、成本追踪与评测框架。</p><ul><li>69 条交易记录用于检索与查询验证</li><li>28 个测试样本覆盖抽取、查询与总结</li><li>3 个系统变体用于验证工具调用和检索等架构选择</li></ul></div></article>
+
+      <article class="case-row"><p class="case-label">关键词</p><div class="case-content keywords"><span>Multimodal Extraction</span><span>Structured Output</span><span>Human-in-the-loop</span><span>Tool Calling</span><span>Rule-based Retrieval</span><span>Grounding</span></div></article>
     </section>
   </main>
   <footer class="footer shell"><span>GUO CHENGXI / Will Guo</span><a href="../index.html#projects">返回项目列表 ↑</a></footer>

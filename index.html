@@ -11,94 +11,76 @@
   <header class="site-header">
     <nav class="nav shell" aria-label="主导航">
       <a class="monogram" href="#top" aria-label="返回顶部">WG</a>
-      <a class="nav-link" href="#projects">项目 <span>05</span></a>
+      <a class="nav-link" href="#projects">项目索引 <span>05</span></a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero shell">
-      <p class="kicker">PORTFOLIO / SELECTED PROJECTS</p>
-      <h1><span>GUO CHENGXI</span><span class="slash">/</span><span>Will Guo</span></h1>
-      <div class="education" aria-label="教育经历">
-        <span>Wuhan University</span>
-        <svg viewBox="0 0 72 16" aria-hidden="true"><path d="M1 8h68M62 1l7 7-7 7" /></svg>
-        <span>Nanyang Technological University</span>
+      <div class="identity-panel">
+        <p class="kicker">PORTFOLIO / SELECTED WORK</p>
+        <h1>GUO CHENGXI <span>/ Will Guo</span></h1>
+        <div class="education" aria-label="教育经历">
+          <div><small>01</small><span>Wuhan University</span></div>
+          <div class="education-arrow" aria-hidden="true">↓</div>
+          <div><small>02</small><span>Nanyang Technological University</span></div>
+        </div>
       </div>
-      <a class="scroll-cue" href="#projects"><span>查看项目</span><span aria-hidden="true">↓</span></a>
+
+      <div class="index-panel">
+        <div class="index-panel-head"><span>PROJECT INDEX</span><strong>05</strong></div>
+        <ol>
+          <li><a href="#project-01"><span>01</span><em>某游戏平台多模态广告审核系统</em><b>↘</b></a></li>
+          <li><a href="#project-02"><span>02</span><em>企业社媒风险监测 Agent</em><b>↘</b></a></li>
+          <li><a href="#project-03"><span>03</span><em>Outflow — 对话式支出管理 Agent</em><b>↘</b></a></li>
+          <li><a href="#project-04"><span>04</span><em>LLM / Agent Reliability Testing</em><b>↘</b></a></li>
+          <li><a href="#project-05"><span>05</span><em>UiPath WhatsApp Browser Automation</em><b>↘</b></a></li>
+        </ol>
+      </div>
     </section>
 
     <section class="projects shell" id="projects">
-      <div class="section-label">
-        <span>精选项目</span>
-        <span>01—05</span>
-      </div>
+      <div class="section-label"><span>精选项目</span><span>SELECTED PROJECTS / 01—05</span></div>
 
       <div class="project-list">
-        <a class="project-card project-card--lead" href="./projects/game-platform.html">
+        <a class="project-card" id="project-01" href="./projects/game-platform.html">
           <div class="card-number">01</div>
-          <div class="card-body">
-            <p class="card-type">MULTIMODAL AI / CONTENT MODERATION</p>
-            <h2>某游戏平台<br />多模态广告审核系统</h2>
-            <p class="card-summary">覆盖视频、图片、音频、OCR、视频切片、专项 Agent 与大模型判断的多模态 AI 审核方案。</p>
-            <div class="metrics">
-              <span><strong>99.2%</strong> 准确率</span>
-              <span><strong>50%</strong> 时效提升</span>
-              <span><strong>40%</strong> 成本下降</span>
-            </div>
-          </div>
+          <div class="card-title"><p class="card-type">MULTIMODAL AI</p><h2>某游戏平台<br />多模态广告审核系统</h2></div>
+          <div class="card-detail"><p>覆盖视频、图片、音频、OCR、视频切片、专项 Agent 与大模型判断的多模态审核方案。</p><div class="metrics"><span><strong>99.2%</strong> 准确率</span><span><strong>50%</strong> 时效提升</span><span><strong>40%</strong> 成本下降</span></div></div>
           <span class="card-arrow" aria-hidden="true">↗</span>
         </a>
 
-        <a class="project-card" href="./projects/social-agent.html">
+        <a class="project-card" id="project-02" href="./projects/social-agent.html">
           <div class="card-number">02</div>
-          <div class="card-body">
-            <p class="card-type">AI AGENT / RISK MONITORING</p>
-            <h2>企业社媒风险监测 Agent</h2>
-            <p class="card-summary">浏览器插件抓取、关键词提取、联网搜索、模型理解与结构化风险输出。</p>
-            <div class="metrics"><span><strong>21%</strong> token 成本降低</span></div>
-          </div>
+          <div class="card-title"><p class="card-type">AI AGENT / RISK MONITORING</p><h2>企业社媒风险监测 Agent</h2></div>
+          <div class="card-detail"><p>浏览器插件抓取、关键词提取、联网搜索、模型理解与结构化风险输出。</p><div class="metrics"><span><strong>21%</strong> token 成本降低</span></div></div>
           <span class="card-arrow" aria-hidden="true">↗</span>
         </a>
 
-        <a class="project-card" href="./projects/outflow.html">
+        <a class="project-card" id="project-03" href="./projects/outflow.html">
           <div class="card-number">03</div>
-          <div class="card-body">
-            <p class="card-type">AI AGENT / STRUCTURED DATA</p>
-            <h2>Outflow — 对话式支出管理 Agent</h2>
-            <p class="card-summary">从票据识别、结构化数据到工具调用和自然语言查询的 Agent 项目。</p>
-            <div class="tags"><span>OCR</span><span>Tool Calling</span><span>Grounding</span></div>
-          </div>
+          <div class="card-title"><p class="card-type">AI AGENT / STRUCTURED DATA</p><h2>Outflow — 对话式支出管理 Agent</h2></div>
+          <div class="card-detail"><p>票据与文本输入经结构化、人工复核和确定性工具处理，转化为可信的自然语言支出查询。</p><div class="tags"><span>OCR</span><span>Tool Calling</span><span>Human-in-the-loop</span></div></div>
           <span class="card-arrow" aria-hidden="true">↗</span>
         </a>
 
-        <a class="project-card" href="./projects/evaluation.html">
+        <a class="project-card" id="project-04" href="./projects/evaluation.html">
           <div class="card-number">04</div>
-          <div class="card-body">
-            <p class="card-type">EVALUATION / RELIABILITY</p>
-            <h2>LLM / Agent Reliability Testing</h2>
-            <p class="card-summary">围绕 Prompt、Gold Label、Rubric、Guardrail 与边界样本进行系统化评测。</p>
-            <div class="tags"><span>Eval Set</span><span>Rubrics</span><span>Guardrails</span></div>
-          </div>
+          <div class="card-title"><p class="card-type">EVALUATION / RELIABILITY</p><h2>LLM / Agent Reliability Testing</h2></div>
+          <div class="card-detail"><p>28 个测试样本、4 个质量维度与 3 组架构变体，用失败样本驱动系统从 V1 迭代到 V2。</p><div class="metrics"><span><strong>57% → 79%</strong> 总体通过率</span></div></div>
           <span class="card-arrow" aria-hidden="true">↗</span>
         </a>
 
-        <a class="project-card" href="./projects/uipath.html">
+        <a class="project-card" id="project-05" href="./projects/uipath.html">
           <div class="card-number">05</div>
-          <div class="card-body">
-            <p class="card-type">RPA / BROWSER AUTOMATION</p>
-            <h2>UiPath WhatsApp Browser Automation</h2>
-            <p class="card-summary">基于 UiPath 的 WhatsApp Web 浏览器自动化工作流。</p>
-            <div class="tags"><span>UiPath</span><span>Workflow</span><span>Exception Handling</span></div>
-          </div>
+          <div class="card-title"><p class="card-type">RPA / BROWSER AUTOMATION</p><h2>UiPath WhatsApp Browser Automation</h2></div>
+          <div class="card-detail"><p>可复用的 WhatsApp 子流程，连接房源筛选、可用时间生成、消息发送与预约确认。</p><div class="tags"><span>UiPath</span><span>Google Calendar</span><span>Agentic Automation</span></div></div>
           <span class="card-arrow" aria-hidden="true">↗</span>
         </a>
       </div>
     </section>
   </main>
 
-  <footer class="footer shell">
-    <span>GUO CHENGXI / Will Guo</span>
-    <a href="#top">返回顶部 ↑</a>
-  </footer>
+  <footer class="footer shell"><span>GUO CHENGXI / Will Guo</span><a href="#top">返回顶部 ↑</a></footer>
 </body>
 </html>

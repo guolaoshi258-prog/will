@@ -13,14 +13,23 @@
       <a class="back" href="../index.html#projects">← 返回项目列表</a>
       <p class="project-index">PROJECT 05 / RPA</p>
       <h1>UiPath WhatsApp Browser Automation</h1>
-      <p class="project-lead">基于 UiPath 的 WhatsApp Web 浏览器自动化工作流。</p>
+      <p class="project-lead">把房源筛选后的预约沟通封装成可复用的 WhatsApp Web 自动化子流程。</p>
     </section>
+
     <section class="case-study shell">
-      <article class="case-row"><p class="case-label">项目简介</p><div class="case-content"><h2>将重复的浏览器操作转化为 RPA 流程</h2><p>使用 UiPath 完成 WhatsApp Web 浏览器自动化，把人工点击流程拆分为可执行、可复用的工作流。</p></div></article>
-      <article class="case-row"><p class="case-label">核心问题</p><div class="case-content"><h2>在动态网页中保持流程稳定</h2><p>网页元素可能异步加载，Selector 可能失效，自动化流程还需要在局部步骤异常时继续安全运行。</p></div></article>
-      <article class="case-row"><p class="case-label">项目流程</p><div class="case-content"><div class="flow"><span>Trigger</span><span class="arrow">→</span><span>Open Browser</span><span class="arrow">→</span><span>Locate UI Element</span><span class="arrow">→</span><span>Execute Action</span><span class="arrow">→</span><span>Exception Handling</span></div></div></article>
-      <article class="case-row"><p class="case-label">方案重点</p><div class="case-content"><ul><li>UI Element 定位</li><li>Browser Automation</li><li>Workflow</li><li>等待与分支处理</li><li>Exception Handling</li></ul></div></article>
-      <article class="case-row"><p class="case-label">关键词</p><div class="case-content keywords"><span>UiPath</span><span>RPA</span><span>Browser Automation</span><span>Workflow</span><span>Exception Handling</span></div></article>
+      <article class="case-row"><p class="case-label">项目背景</p><div class="case-content"><h2>从房源资料到看房预约的跨应用流程</h2><p>完整自动化从租房 PDF 开始：提取房源信息、按预算和通勤等条件筛选、读取日历空闲时间、通过 WhatsApp 联系发布人，并在确认后创建日历预约。流程横跨 PDF、Google Sheets、WhatsApp Web、Agent 与 Google Calendar。</p></div></article>
+
+      <article class="case-row"><p class="case-label">我的模块</p><div class="case-content"><h2>独立、可复用的 WhatsApp 子流程</h2><p>负责将人工沟通步骤拆成 UiPath Studio Web 子流程。发布人的电话号码与自动生成的看房消息作为输入参数传入；流程定位正确联系人、打开对话、输入消息并触发发送。</p><p>把通信逻辑与主流程分离后，同一套动作可以循环处理多个房源和联系人，而不需要复制流程节点。</p></div></article>
+
+      <article class="case-row"><p class="case-label">自动化流程</p><div class="case-content"><h2>发送动作只是完整闭环的一部分</h2><div class="flow"><span>Accepted Properties</span><span class="arrow">→</span><span>Calendar Availability</span><span class="arrow">→</span><span>Message Arguments</span><span class="arrow">→</span><span>WhatsApp UI Automation</span><span class="arrow">→</span><span>Status to Sheets</span><span class="arrow">→</span><span>Response to Agent</span><span class="arrow">→</span><span>Calendar Re-check</span><span class="arrow">→</span><span>Create Event</span></div></div></article>
+
+      <article class="case-row"><p class="case-label">系统分工</p><div class="case-content"><h2>AI 理解非结构化回复，规则校验关键状态</h2><div class="system-grid"><div class="system-item"><small>UI AUTOMATION</small><strong>操作 WhatsApp Web</strong><p>定位联系人和输入框，发送包含房源信息与候选时间的消息。</p></div><div class="system-item"><small>GOOGLE SHEETS</small><strong>跨流程状态交接</strong><p>记录已发送、等待回复和预约结果，保持每套房源可追踪。</p></div><div class="system-item"><small>DECISION AGENT</small><strong>理解自然语言回复</strong><p>输出 PROPOSED、NO TIME 或 REJECTED，并在存在建议时提取时间。</p></div><div class="system-item"><small>DETERMINISTIC CHECK</small><strong>再次检查日历冲突</strong><p>回复等待期间日历可能变化，因此创建事件前重新校验空闲状态。</p></div></div></div></article>
+
+      <article class="case-row"><p class="case-label">可靠性设计</p><div class="case-content"><h2>自动化不只是录制点击</h2><ul><li>通过输入参数复用同一子流程，而不是为每个联系人复制动作</li><li>使用明确的 UI Element 定位、等待与步骤状态</li><li>消息发送后写回状态，供下一阶段识别待处理记录</li><li>将自然语言理解与最终日历验证分开，避免 Agent 直接确认冲突时间</li></ul></div></article>
+
+      <article class="case-row"><p class="case-label">输出</p><div class="case-content"><div class="result-grid"><div class="result"><strong>Reusable</strong><span>面向多个房源与联系人的子流程</span></div><div class="result"><strong>Traceable</strong><span>Google Sheets 中的状态交接</span></div><div class="result"><strong>Checked</strong><span>预约创建前的二次冲突校验</span></div></div></div></article>
+
+      <article class="case-row"><p class="case-label">关键词</p><div class="case-content keywords"><span>UiPath Studio Web</span><span>Browser Automation</span><span>Reusable Workflow</span><span>Google Sheets</span><span>Google Calendar</span><span>Agentic Automation</span></div></article>
     </section>
   </main>
   <footer class="footer shell"><span>GUO CHENGXI / Will Guo</span><a href="../index.html#projects">返回项目列表 ↑</a></footer>

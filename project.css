@@ -61,6 +61,17 @@
 .result span { color: var(--muted); font-size: 12px; }
 .keywords { display: flex; flex-wrap: wrap; gap: 8px; }
 .keywords span { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; }
+.system-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.system-item { min-height: 154px; padding: 20px; border: 1px solid var(--line); background: var(--white); }
+.system-item small { display: block; margin-bottom: 24px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .12em; }
+.system-item strong { display: block; margin-bottom: 8px; font-family: Georgia, "Songti SC", "STSong", serif; font-size: 22px; font-weight: 500; line-height: 1.15; }
+.system-item p { margin: 0; font-size: 13px; }
+.score-table { width: 100%; border-collapse: collapse; }
+.score-table th, .score-table td { padding: 13px 10px; border-bottom: 1px solid var(--line); text-align: left; font-size: 13px; }
+.score-table th { color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.score-table td strong { color: var(--accent); }
+.note { margin-top: 20px !important; padding: 14px 16px; border-left: 2px solid var(--accent); background: var(--accent-soft); color: var(--ink) !important; font-size: 13px !important; }
+.case-content .result-grid + p { margin-top: 18px; }
 
 @media (max-width: 760px) {
   .project-hero { min-height: 640px; padding-top: 64px; }
@@ -68,4 +79,6 @@
   .case-row { grid-template-columns: 1fr; gap: 18px; padding: 36px 0; }
   .result-grid { grid-template-columns: 1fr; }
   .result { min-height: 120px; }
+  .system-grid { grid-template-columns: 1fr; }
+  .score-table { display: block; overflow-x: auto; }
 }
